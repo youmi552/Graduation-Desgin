@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>牛马</title>
+</head>
+<body>
+<form method="post"  action="http://47.108.197.237/common/register/email/">
+用户名<input type="text" name="username"><br>
+  密码  <input type="password" name="password"><br>
+  邮箱  <input type="text" name="email" id="email"> <button type="button" onclick="fun1()">点击获取验证码</button><br>
+  验证码  <input type="text" name="code"><br>
+   注册 <input type="submit">
+</form>
+</body>
+<script>
+    function fun1(){
+       var email = document.getElementById("email")
+        var xhr = null;
+        if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            xhr = new ActiveXObject()
+        }else{
+            xhr = null;
+        }
+        if(xhr){
+            xhr.open('GET','http://47.108.197.237/common/register/email/'+email.value);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    alert(eval("("+xhr.responseText+")").result);
+                    xhr = null;
+                }
+            }
+            xhr.send(null);
+        }
+    }
+</script>
+</html>

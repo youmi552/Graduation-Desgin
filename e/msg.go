@@ -1,0 +1,72 @@
+package e
+
+var MsgFlags = map[uint]string{
+	SUCCESS:                  "ok",
+	ERROR:                    "fail",
+	INVAILDPARAMS:            "请求参数错误",
+	INVAILDPHONENUMBER:       "无效的电话号码",
+	GETVERIFICATIONCODEFAIL:  "获取验证码失败",
+	USERNAMEISNULL:           "用户名为空",
+	PASSWORDISNULL:           "密码为空",
+	UPDATENOTICEFAIL:         "更新公告失败",
+	CODEISNULL:               "验证码为空",
+	GetNoticeFail:            "获取公告失败！",
+	ERRORVERIFICATIONCODE:    "验证码错误",
+	REGISTERFAIL:             "注册失败！",
+	INVAILDUSERNAME:          "用户名不能大于6位",
+	INVAILDPASSWORD:          "密码长度不能大于12位且小于6位",
+	GETPARAMFAIL:             "获取前端参数失败",
+	LOGINFAIL:                "登录失败",
+	NEEDREGISTER:             "用户不存在，请先注册!",
+	GETTOKENFAIL:             "获取token失败！",
+	SETTOKENFAIL:             "设置token失败！",
+	PASSWORDERROR:            "密码错误！",
+	NEEDLOGIN:                "登录超时!请重新登录！",
+	TOKENERROR:               "该账户在其他设备已登录！请重新获取token！",
+	STRCONVERROR:             "转换类型错误",
+	UPDATEAVATARERROR:        "更新头像失败",
+	UPDATEINTRODUCTIONERROR:  "更新用户简介失败",
+	UPDATEUSERNAMEFAIL:       "更新用户名失败！",
+	GETUSERINFOFAIL:          "获取用户信息失败！",
+	ADMINNEED:                "用户权限不足！",
+	UPLOADGOODSFAIL:          "上传商品失败!",
+	UPLOADPICTUREFAIL:        "上传图片失败!",
+	GETGOODSINFOFAIL:         "获得商品信息失败！",
+	GETGOODSDATAFAIL:         "获取商品展示信息失败！",
+	ADDCATEGORYFAIL:          "添加类别失败！",
+	GETALLCATEGORYFAIL:       "获得商品种类列表失败！",
+	CANCELCOLLECTIONFAIL:     "取消收藏失败！",
+	COLLECTIONFAIL:           "收藏失败！",
+	GETCARTFAIL:              "获取购物车失败！",
+	ADDGOODINCARTFAIL:        "添加物品到购物车失败！",
+	REMOVEGOODINCARTFAIL:     "从购物车中移除物品失败！",
+	ADDADVICEFAIL:            "添加投诉建议失败",
+	GETHISTORYFAIL:           "获取浏览历史失败！",
+	GETCOLLECTIONFAIL:        "获取收藏失败！",
+	CREATEORDERFAIL:          "创建订单失败！",
+	GETORDERSFAIL:            "获取订单失败！",
+	GETDATAFAIL:              "获取数据失败！",
+	GETUSERDATAFAIL:          "获取用户数据失败！",
+	UPDATEUSERDATAFAIL:       "更新用户数据失败！",
+	GETORDERDETAILFAIL:       "获取订单详情失败！",
+	GETADVICEFAIL:            "获取投诉建议失败!",
+	CONFIRMADVICEFAIL:        "确认阅读建议失败！",
+	DELETEADVICEFAIL:         "清空已阅读失败！",
+	ALLOWFAIL:                "上架物品失败！",
+	BANFAIL:                  "下架物品失败！",
+	GETIDENTIFICATIONFAIL:    "获取认证信息失败！",
+	ADDIDENTIFICATIONFAIL:    "添加认证信息失败！",
+	UPDATEIDENTIFICATIONFAIL: "更新认证信息失败！",
+	ACCEPTIDENTIFICATIONFAIL: "通过认证失败！",
+	REFUSEIDENTIFICATIONFAIL: "拒绝认证失败！",
+	DELETECATEGORYFAIL:       "删除分类失败！",
+}
+
+// GetMsg 获取状态码对应的信息
+func GetMsg(code uint) string {
+	msg, ok := MsgFlags[code]
+	if ok {
+		return msg
+	}
+	return MsgFlags[ERROR]
+}
